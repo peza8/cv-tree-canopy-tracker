@@ -1,6 +1,19 @@
 cmake_minimum_required(VERSION 3.2)
 project(zenn)
 
+find_package(OpenCV REQUIRED PATHS "../build")
+
+# If the package has been found, several variables will
+# be set, you can find the full list with descriptions
+# in the OpenCVConfig.cmake file.
+# Print some message showing some of them
+message(STATUS "OpenCV library status:")
+message(STATUS "    config: ${OpenCV_DIR}")
+message(STATUS "    version: ${OpenCV_VERSION}")
+message(STATUS "    libraries: ${OpenCV_LIBS}")
+message(STATUS "    include path: ${OpenCV_INCLUDE_DIRS}")
+
+
 if (NOT LOGGING_SOURCE)
 	set(LOGGING_SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/../external-modules/spdlog")
 endif()
