@@ -1,0 +1,23 @@
+#include <zenn_img_annotation.hpp>
+
+#include <stdexcept>
+
+#include <spdlog.h>
+#include <opencv2/opencv.hpp>
+
+// #include <opencv2/core.hpp>
+// #include <opencv2/imgcodecs.hpp>
+// #include <opencv2/highgui.hpp>
+
+namespace zenn {
+
+void DrawCenterCircleOnImg(const std::string& img_path) {
+  // cv::Mat aerial_img = cv::imread(img_path, cv::IMREAD_COLOR);
+  // if (aerial_img.empty()) {
+  //   const std::string err_msg = "Could not find image: " + img_path; 
+  //   throw std::runtime_error(err_msg);
+  // }
+  // cv::imshow(aerial_img);
+}
+
+}
