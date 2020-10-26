@@ -5,7 +5,9 @@
 
 int main() {
   spdlog::info("Script running");
-  zenn::DrawCenterCircleOnImg("./data-source/aerial-img-01.png");
+  // zenn::DrawCenterCircleOnImg("./data-source/aerial-img-01.png");
+
+  zenn::DrawCenterCircleOnVid("./data-source/descent-image-feed-01.MP4");
 
   return 0;
 }

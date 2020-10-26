@@ -35,6 +35,37 @@ void DrawCenterCircleOnImg(const std::string& img_path) {
   cv::waitKey(0); 
 }
 
+void DrawCenterCircleOnVid(const std::string& vid_path) {
+  spdlog::info("Annotating circle in center of video");
+  cv::VideoCapture aerial_vid(vid_path); 
 
+  while(true) {
+    cv::Mat frame;
+    aerial_vid >> frame;
+    if (frame.empty()) {
+      spdlog::warn("Empty frame found");
+      break;
+    }
+    DrawCenterCircleOnFrame(frame);
+    cv::imshow("Aerial Video", frame);
+
+    // Look for exit
+    char c = (char)cv::waitKey(1);
+    if (c == 27) break;
+  } 
+
+  aerial_vid.release();
+  cv::destroyAllWindows();
+}
+
+void DrawCenterCircleOnFrame(cv::Mat& frame) {
+  const int row_mid = frame.rows/2;
+  const int col_mid = frame.cols/2;
+  cv::Point circle_center(col_mid, row_mid);
+  cv::Scalar circle_colour(0,0,255);
+  const int radius = 450;
+  const int line_weigth = 5;
+  cv::circle(frame, circle_center, radius, circle_colour, line_weigth);
+}
 
 }
